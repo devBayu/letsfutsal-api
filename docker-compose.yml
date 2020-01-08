@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  be-futsal:
+    environment:
+      - CONTEXT-PATH=/impactsquad
+      - PORT=8080
+      - DRIVER=com.mysql.jdbc.Driver
+      - DB_URL=jdbc:mysql://enigma-mysql-do-user-6888911-0.db.ondigitalocean.com:25060/impactsquad?autoReconnect=true&useSSL=false
+      - DB_USER=impactsquad
+      - DB_PASS=P@ssw0rd
+    image: impactsquad/impactsquad-be:1.0
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports: 
+      - "9010:8080"
+    restart: always
